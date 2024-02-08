@@ -17,7 +17,7 @@ class BaseModel:
     """
 
 
-def __init__(self, *args, *kwargs):
+def __init__(self, *args, **kwargs):
     """
     Initializing an instance of the base model class the attributes
     to be used created_at and updated_at which are datetime attribute
