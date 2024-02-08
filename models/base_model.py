@@ -49,8 +49,11 @@ return f"[{class_name}] ({self.id}) {self.__dict__}"
 
 def save(self):
     """Updates the datetime with current datetime"""
+
+
 self.Updated_at = datetime.now()
 models.storage.save()
+
 
 def to_dict(self):
     """Returns a dictionary"""
