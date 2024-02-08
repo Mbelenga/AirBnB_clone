@@ -46,6 +46,7 @@ def __str__(self):
 class_name = self.__class__.__name__
 return f"[{class_name}] ({self.id}) {self.__dict__}"
 
+
 def save(self):
 """Updates the datetime with current datetime"""
 self.Updated_at = datetime.now()
