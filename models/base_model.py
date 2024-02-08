@@ -12,19 +12,21 @@ import models
 
 
 class BaseModel:
+    """
+    A basemodel class
+    """
 
 
-"""
-A BaseModel class
-"""
 def __init__(self, *args, *kwargs):
-"""
-Initializing an instance of the base model class the attributes
-to be used created_at and updated_at which are datetime attribute
-the id which is a string attrbute.
-The methods to be used include __str__method tha t returns a string
-representation of the object.
-"""
+    """
+    Initializing an instance of the base model class the attributes
+    to be used created_at and updated_at which are datetime attribute
+    the id which is a string attrbute.
+    The methods to be used include __str__method tha t returns a string
+    representation of the object.
+    """
+
+
 if kwargs:
     for key, value in kwargs.items():
         if key == "created_at" or key == "updated_at":
@@ -36,6 +38,7 @@ if kwargs:
         self.upated_at = self.created_at
         models.storage.new(self)
 
+
 def __str__(self):
 """sets the basemodel"""
 class_name = self.__class__.__name__
@@ -46,3 +49,10 @@ def save(self):
 self.Updated_at = datetime.now()
 models.storage.save()
 
+def to_dict(self):
+    """Returns a dictionary"""
+    new_dict = self.__dict__.copy()
+    new_dict["created_at"] = self.created_at.isoformat()
+    new_dict["updated_at"] = self.updated_at.isoformat()
+    new_dict["__class__"] = self.__class__.__name__
+    return new_dict
