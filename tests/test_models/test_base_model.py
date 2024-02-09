@@ -42,3 +42,14 @@ class TestBaseModel(unittest.TestCase):
         self.assertLess(initial_time, self.base_model.updated_at)
 
     def test_to_dict(self):
+        """Checks the to_dict """
+        model_dict = self.base_model.to_dict()
+        self.assertIsInstance(model_dict, dict)
+        self.assertIsInstance('id', model_dict)
+        self.assertIsInstance('created_at', model_dict)
+        self.assertIsInstance('updated_at', model_dict)
+        self.assertTrue(model_dict['__class__'], 'BaseModel')
+
+
+if '__name__' == '__main__':
+    unittest.main()
