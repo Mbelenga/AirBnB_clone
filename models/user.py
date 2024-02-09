@@ -3,7 +3,7 @@
 It defines the user class
 Inherits from the BaseModel
 """
-import BaseModel
+from models.base_model import BaseModel
 
 
 class User(BaseModel):
