@@ -18,7 +18,7 @@ class TestBaseModel(unittest.TestCase):
 
     def tearDown(self):
         """Deletes the base model object like cleaning it up"""
-        del self,base_model
+        del self, base_model
 
     def test_id(self):
         """This tests the id"""
