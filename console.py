@@ -35,8 +35,13 @@ class HBNBCommand(cmd.Cmd):
         """Just an empty line"""
         pass
 
-    def help_quit(self):
+    def do_quit(self, cmd):
+        """Handles the quit command"""
+        return True
 
+    def do_EOF(self, cmd):
+        """Exits the program with(CTRL+D)"""
+        return True
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
