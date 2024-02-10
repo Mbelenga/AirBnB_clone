@@ -65,7 +65,8 @@ class FileStorage:
                 for key, value in my_dict.items():
                     class_name, my_id = key.split(".")
                     self.__objects[key] = self.my_class()[class_name](**value)
-        except FileNotFoundError pass
+        except FileNotFoundError:
+            pass
 
 
 storage = FileStorage()
