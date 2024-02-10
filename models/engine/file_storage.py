@@ -64,7 +64,7 @@ class FileStorage:
                 my_dict = json.load(file)
                 for key, value in my_dict.items():
                     class_name, my_id = key.split(".")
-                    self.__objects[key] =self.my_classes()[class_name](**value)
+                    self.__objects[key] = self.my_classes()[class_name](**value)
         except FileNotFoundError:
             pass
 
