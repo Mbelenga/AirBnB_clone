@@ -1,9 +1,14 @@
-footer{
- background-color: #00FF00;
+footer {
     height: 60px;
     width: 100%;
     position: absolute;
-    bottom: 0;
+    /*bottom: 0; */
     text-align: center;
-    line-height: 60px;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-top: 1px solid#CCCCCC;
+    margin-top: auto;
+  }
