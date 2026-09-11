@@ -4,8 +4,10 @@
 a class that serializes instances to a
 JSON file and deserializes JSON file to instances
 """
+
 import os
 import json
+
 from models.base_model import BaseModel
 from models.user import User
 from models.amenity import Amenity
@@ -21,17 +23,19 @@ class FileStorage:
     __file_path: path to the JSON file
     __objects: dictionary - empty but will store all objects
     """
-    __filepath = 'file.json'
+
+    __file_path = 'file.json'
     __objects = {}
 
     our_classes = {
-                    "BaseModel": BaseModel,
-                    "State": State,
-                    "City": City,
-                    "Amenity": Amenity,
-                    "Place": Place,
-                    "Review": Review,
-                    "User": User}
+        "BaseModel": BaseModel,
+        "State": State,
+        "City": City,
+        "Amenity": Amenity,
+        "Place": Place,
+        "Review": Review,
+        "User": User
+    }
 
     def all(self):
         """
@@ -52,22 +56,25 @@ class FileStorage:
         """
         # convert object to JSON
         json_objects = {}
+
         for key, value in self.__objects.items():
             json_objects[key] = value.to_dict()
-            # Write JSON string to file
-        with open(self.__filepath, "w") as f:
+
+        # Write JSON string to file
+        with open(self.__file_path, "w") as f:
             json.dump(json_objects, f)
 
     def reload(self):
         """
         deserializes the JSON file to __objects
         """
-
         # Create an empty dictionary
-        if os.path.exists(self.__filepath):
+        if os.path.exists(self.__file_path):
+
             # Open the JSON file and load the data into the dictionary
-            with open(self.__filepath, "r") as f:
+            with open(self.__file_path, "r") as f:
                 obj_load = json.load(f)
+
                 for key, value in obj_load.items():
                     class_name, object_id = key.split('.')
                     self.__objects[key] = self.our_classes[class_name](**value)
